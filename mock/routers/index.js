@@ -1,5 +1,3 @@
-const testRouters = require('./manage/test');
+const testRouters = require('./user/login');
 
-module.exports = function(app) {
-  return testRouters(app);
-};
+module.exports = app => testRouters(app);

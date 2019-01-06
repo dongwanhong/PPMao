@@ -3,10 +3,9 @@ import React, { Component } from 'react';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import englishLocaleData from 'react-intl/locale-data/en';
 import chineseLocaleData from 'react-intl/locale-data/zh';
+import { connect } from 'react-redux';
 import zhCN from './locales/zh-CN';
 import enUS from './locales/en-US';
-// 配置文件
-import config from '../config';
 
 addLocaleData([...englishLocaleData, ...chineseLocaleData]);
 const messages = {
@@ -19,7 +18,7 @@ class LocaleProvider extends Component {
     super(props);
 
     const { language } = navigator;
-    const { lang } = config.local;
+    const { lang } = props;
     this.state = {
       lang: lang || language,
     };
@@ -41,4 +40,8 @@ class LocaleProvider extends Component {
   }
 }
 
-export default LocaleProvider;
+const mapStateToProps = state => ({
+  lang: state.getIn(['config', 'local', 'lang']),
+});
+
+export default connect(mapStateToProps, null)(LocaleProvider);

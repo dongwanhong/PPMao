@@ -1,6 +1,6 @@
 const config = {
   local: {
-    // { zh-CN | en-US }
+    /* { zh-CN | en-US } */
     lang: 'zh-CN',
   },
 };

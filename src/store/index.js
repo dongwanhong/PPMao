@@ -1,9 +1,9 @@
 import React from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import reducer from './reducers';
+import reducers from './reducers';
 
-const store = createStore(reducer);
+const store = createStore(reducers);
 
 const StoreProvider = (props) => {
   const { children } = props;

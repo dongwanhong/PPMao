@@ -1,6 +1,27 @@
-// 引入变量，便于主题开发
-@import './variable.less';
-// 引入 reset-less 解决浏览器对元素熏染的差异
-@import './reset.less';
-// 引入公共样式
-@import './common.less';
+html,
+body,
+#root {
+    height: 100vh;
+    width: 100vw;
+}
+
+/* 引入 reset-less 解决浏览器对元素熏染的差异 */
+@import './custom//reset.less';
+
+/**
+ * 引入变量，便于开发颜色主题
+ * 动态主题构建参考链接：
+ * https://my.oschina.net/pangwu/blog/828743
+ * https://blog.hypers.io/2018/04/19/webpack-mutiple-theme-solution/
+ * http://hiyangguo.com/less-multiple-color-theme-realize/
+ */
+@import './themes/ant/variable.less';
+
+/* 引入公共样式 */
+@import './custom/common.less';
+
+/* 引入公共组件样式 */
+@import './components/error-page.less';
+
+/* 引入页面样式 */
+@import './views/home.less';

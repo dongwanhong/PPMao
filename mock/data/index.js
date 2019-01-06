@@ -1,5 +1,5 @@
-const testData = require('./manage/test');
+const users = require('./user/login');
 
 module.exports = {
-  testData
+  users,
 };

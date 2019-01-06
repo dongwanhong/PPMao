@@ -1,21 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { FormattedMessage } from 'react-intl';
-// import store from '../../store';
+import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Button } from 'antd';
+import { Layout } from 'antd';
+import Dashboard from '../dashboard';
 
 const Home = (props) => {
-  const { text } = props;
+  const { Header, Content, Footer } = Layout;
+  const { text, match } = props;
+  const { url } = match;
+
   return (
-    <div>
-      <div>
-        <Button type="primary">Check Ant</Button>
-      </div>
-      <FormattedMessage id="helloWorld" />
-      <div>{text}</div>
-      <Link to="/product">go</Link>
-    </div>
+    <Layout>
+      <Header>票票猫</Header>
+      <Content>
+        <div>{text}</div>
+        <Route exact path={`${url}/`} component={Dashboard} />
+      </Content>
+      <Footer>footer</Footer>
+    </Layout>
   );
 };
 

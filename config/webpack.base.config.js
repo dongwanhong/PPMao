@@ -1,5 +1,7 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const modifyVars = require('../src/styles');
+
 module.exports = {
   // 入口配置
   entry: {
@@ -32,6 +34,7 @@ module.exports = {
       }, {
         loader: 'less-loader', // compiles Less to CSS
         options: {
+          modifyVars,
           javascriptEnabled: true
         }
       }]

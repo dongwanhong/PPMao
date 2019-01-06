@@ -1,7 +1,7 @@
 import React from 'react';
-import StoreProvider from '../../store';
-import IntlContainer from '../../i18n';
-import RouterProvider from '../../router';
+import StoreProvider from '../store';
+import IntlContainer from '../i18n';
+import RouterProvider from '../router';
 
 const App = () => (
   <StoreProvider>

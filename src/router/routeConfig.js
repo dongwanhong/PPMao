@@ -1,6 +1,6 @@
 import React from 'react';
 import Home from '../views/home';
-import Product from '../views/product';
+import Login from '../views/login';
 import NotFound from '../components/pages/404';
 
 const routeConfig = [{
@@ -12,10 +12,10 @@ const routeConfig = [{
   // getUserConfirmation: (msg, callback) => {},
   // hashType: '',
 }, {
-  key: 'product',
-  path: '/product',
+  key: 'login',
+  path: '/login',
   exact: true,
-  component: () => <Product typeCheck="checked success" />,
+  component: () => <Login typeCheck="checked success" />,
 }, {
   key: 'notFound',
   exact: true,
