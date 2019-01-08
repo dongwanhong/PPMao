@@ -1,4 +1,3 @@
-import React from 'react';
 import Home from '../views/home';
 import Login from '../views/login';
 import NotFound from '../components/pages/404';
@@ -15,7 +14,7 @@ const routeConfig = [{
   key: 'login',
   path: '/login',
   exact: true,
-  component: () => <Login typeCheck="checked success" />,
+  component: Login,
 }, {
   key: 'notFound',
   exact: true,

@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import login from '../../api/user';
+import Login from './components/LoginForm';
 
 class Product extends React.Component {
   constructor(props) {
@@ -29,13 +29,13 @@ class Product extends React.Component {
 
   render() {
     const { name, errorText } = this.state;
-    const { typeCheck } = this.props;
-    return <div>{name} &gt; {errorText} &gt; {typeCheck}</div>;
+    return (
+      <div>
+        <div>{name} &gt; {errorText}</div>
+        <Login />
+      </div>
+    );
   }
 }
-
-Product.propTypes = {
-  typeCheck: PropTypes.string.isRequired,
-};
 
 export default Product;
