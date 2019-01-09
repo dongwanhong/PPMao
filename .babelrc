@@ -27,6 +27,10 @@
       "libraryName": "antd",
       "libraryDirectory": "es",
       "style": true
-    }]
+    }],
+    /* 配置Babel 支持 Decorator */
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    /* 配置Babel 支持下个版本实例属性的写法 */
+    ["@babel/plugin-proposal-class-properties", { "loose" : true }],
   ]
 }

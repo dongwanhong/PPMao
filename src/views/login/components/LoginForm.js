@@ -12,23 +12,24 @@ import {
 const { Item, create } = Form;
 const hasErrors = fieldsError => Object.keys(fieldsError).some(field => fieldsError[field]);
 
+@create({ name: 'login' })
 class LoginForm extends Component {
-  // const { form: { validateFields } } = this.props;
-
   componentDidMount() {
     // To disabled submit button at the beginning.
-    // eslint-disable-next-line
-    this.props.form.validateFields();
+    const { form: { validateFields } } = this.props;
+    validateFields();
   }
 
-  // handleSubmit = event => {
-  //   event.preventDefault();
-  //   this.props.form.validateFields((error, values) => {
-  //     if (!error) {
-  //       console.log(values);
-  //     }
-  //   })
-  // }
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { form: { validateFields } } = this.props;
+    validateFields((error, values) => {
+      if (!error) {
+        // eslint-disable-next-line
+        console.log(values);
+      }
+    });
+  }
 
   render() {
     const {
@@ -45,8 +46,7 @@ class LoginForm extends Component {
     const passwordError = isFieldTouched('password') && getFieldError('password');
 
     return (
-      // <Form layout="vertical" onSubmit={handleSubmit}>
-      <Form layout="vertical">
+      <Form layout="vertical" onSubmit={this.handleSubmit}>
         <Item
           validateStatus={userNameError ? 'error' : 'validating'}
           help={userNameError || ''}
@@ -81,6 +81,4 @@ class LoginForm extends Component {
   }
 }
 
-const WrappedLoginForm = create({ name: 'login' })(LoginForm);
-
-export default WrappedLoginForm;
+export default LoginForm;

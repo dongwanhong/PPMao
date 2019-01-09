@@ -1,0 +1,6 @@
+{
+  "//": "解决VSCode 中使用 Experimental Decorators 报错",
+  "compilerOptions": {
+    "experimentalDecorators": true
+  }
+}
