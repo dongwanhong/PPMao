@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 // 引入公共配置
 const webpackBaseConfig = require('./webpack.base.config');
 // 合并配置的插件
@@ -45,7 +46,8 @@ module.exports = webpackMerge(webpackBaseConfig, {
      * },
      */
     // 热模块替换机制
-    // hot: true,
+    hot: true,
+    hotOnly: true,
     /* 默认为 true, 意思是，在打包时会注入一段代码到最后的 js 文件中，用来监视页面的改动而自动刷新页面
      * 当为 false 时，网页自动刷新的模式是 iframe，也就是将模板页放在一个 frame中
      *
@@ -68,5 +70,8 @@ module.exports = webpackMerge(webpackBaseConfig, {
     // after 在 webpack-dev-server 静态资源中间件处理之后，比较少用到，可以用于打印日志或者做一些额外处理。
     // When set to true this option bypasses host checking
     disableHostCheck: true,
-  }
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+  ]
 });

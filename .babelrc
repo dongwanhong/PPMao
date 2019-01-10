@@ -32,5 +32,7 @@
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
     /* 配置Babel 支持下个版本实例属性的写法 */
     ["@babel/plugin-proposal-class-properties", { "loose" : true }],
+    /* 配置模块热更新 */
+    "react-hot-loader/babel",
   ]
 }
