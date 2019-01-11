@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import DocumentTitle from 'react-document-title';
 import login from '../../api/user';
 import Login from './components/LoginForm';
 
@@ -30,10 +31,12 @@ class Product extends React.Component {
   render() {
     const { name, errorText } = this.state;
     return (
-      <div>
-        <div>{name} &gt; {errorText}</div>
-        <Login />
-      </div>
+      <DocumentTitle title="登录-票票猫">
+        <Fragment>
+          <div>{name} &gt; {errorText}</div>
+          <Login />
+        </Fragment>
+      </DocumentTitle>
     );
   }
 }
