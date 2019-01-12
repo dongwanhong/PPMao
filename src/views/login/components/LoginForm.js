@@ -1,16 +1,7 @@
-import React, {
-  Component,
-} from 'react';
-import {
-  Form,
-  Icon,
-  Input,
-  Button,
-  // Checkbox,
-} from 'antd';
+import React, { Component } from 'react';
+import { Form } from 'antd';
 
-const { Item, create } = Form;
-const hasErrors = fieldsError => Object.keys(fieldsError).some(field => fieldsError[field]);
+const { create } = Form;
 
 @create({ name: 'login' })
 class LoginForm extends Component {
@@ -32,50 +23,11 @@ class LoginForm extends Component {
   }
 
   render() {
-    const {
-      form: {
-        getFieldDecorator,
-        getFieldsError,
-        getFieldError,
-        isFieldTouched,
-      },
-    } = this.props;
-
-    // Only show error after a field is touched.
-    const userNameError = isFieldTouched('userName') && getFieldError('userName');
-    const passwordError = isFieldTouched('password') && getFieldError('password');
+    const { form, children } = this.props;
 
     return (
-      <Form layout="vertical" onSubmit={this.handleSubmit}>
-        <Item
-          validateStatus={userNameError ? 'error' : 'validating'}
-          help={userNameError || ''}
-        >
-          {getFieldDecorator('username', {
-            rules: [
-              { required: true, message: 'Please input your username, which is required.' },
-            ],
-          })(<Input prefix={<Icon type="user" />} type="text" placeholder="Username" />)}
-        </Item>
-        <Item
-          validateStatus={passwordError ? 'error' : 'validating'}
-          help={passwordError || ''}
-        >
-          {getFieldDecorator('password', {
-            rules: [
-              { required: true, message: 'Please input your password, which is required.' },
-            ],
-          })(<Input prefix={<Icon type="lock" />} type="password" placeholder="Password" autoComplete="off" />)}
-        </Item>
-        <Item>
-          <Button
-            type="primary"
-            htmlType="submit"
-            disabled={hasErrors(getFieldsError())}
-          >
-            Log in
-          </Button>
-        </Item>
+      <Form layout="vertical" className="login" onSubmit={this.handleSubmit}>
+        {children(form)}
       </Form>
     );
   }
