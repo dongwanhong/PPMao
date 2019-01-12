@@ -1,6 +1,11 @@
 {
-  "//": "解决VSCode 中使用 Experimental Decorators 报错",
+  "/注释01/": "解决 VSCode 中使用 Experimental Decorators 报错",
+  "/注释02/": "解决设置路径别名后 VSCode 不再自动提示路径",
   "compilerOptions": {
-    "experimentalDecorators": true
-  }
+    "experimentalDecorators": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+    }
+  },
 }

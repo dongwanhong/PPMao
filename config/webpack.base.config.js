@@ -40,7 +40,7 @@ module.exports = {
       }]
     },
     {
-      test: /\.m?js$/,
+      test: /\.m?js|jsx$/,
       exclude: /node_modules/,
       use: [{
         loader: 'babel-loader',
@@ -63,6 +63,16 @@ module.exports = {
         }
       }]
     }]
+  },
+  resolve: {
+    // 使用的扩展名
+    extensions: ['.js', '.json', '.jsx', '.less'],
+
+    // 模块别名列表
+    alias: {
+      // 路径别名
+      '@': path.join(__dirname, '../src/'),
+    },
   },
   // 插件管理
   plugins: [
