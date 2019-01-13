@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
 import DocumentTitle from 'react-document-title';
 import LoginForm from './components/LoginForm';
+import FormHeader from './components/FormHeader';
+import FormTips from './components/FormTips';
 import FormInputs from './components/FormInputs';
 import FormButtons from './components/FormButtons';
-import FormHeader from './components/FormHeader';
 import FormFooter from './components/FormFooter';
 
 const Login = () => (
@@ -12,6 +13,7 @@ const Login = () => (
       {form => (
         <Fragment>
           <FormHeader />
+          <FormTips />
           <FormInputs form={form} />
           <FormButtons form={form} />
           <FormFooter />
