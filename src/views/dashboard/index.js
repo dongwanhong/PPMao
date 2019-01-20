@@ -10,6 +10,7 @@ const Dashboard = () => (
     </div>
     <FormattedMessage id="helloWorld" />
     <Link to="/login">go</Link>
+    <br />
   </div>
 );
 

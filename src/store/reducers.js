@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux-immutable';
 import config from '../config/store';
-import homeReducer from '../views/home/store';
+import homeReducer from '../views/Home/store';
 
 /**
  * 使用 webpack 构建的项目在模块导入 export default 暴露的变量时，

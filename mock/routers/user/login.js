@@ -20,7 +20,7 @@ module.exports = (app) => {
       });
 
       res.json({
-        sessionId: Math.random().toString(36).substr(2),
+        token: Math.random().toString(36).substr(2),
         userInfo,
       });
     } else {

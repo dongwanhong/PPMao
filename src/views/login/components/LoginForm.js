@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { Form } from 'antd';
+// eslint-disable-next-line
 import LoginContext from '../context';
 import loginApi from '@/api/user';
 
 const { create } = Form;
 
+@withRouter
 @create({ name: 'login' })
 class LoginForm extends Component {
   constructor(props) {
@@ -14,7 +17,7 @@ class LoginForm extends Component {
       defaultValue: {
         show: false,
         type: 'info',
-        message: '请输入账户和密码：admin/Admin1234',
+        message: '请输入账户和密码：admin/Admin123',
       },
     };
   }
@@ -27,14 +30,21 @@ class LoginForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { form: { validateFields } } = this.props;
+    const {
+      form: { validateFields },
+      location: { state },
+      history,
+    } = this.props;
+    const { from = '' } = state || {};
+    const { pathname } = from || { pathname: '/' };
     validateFields((error, values) => {
       if (!error) {
         loginApi(values).then(({ status, data }) => {
-          const { sessionId = '', userInfo = null, errorCode = '' } = data;
-          if (status === 200 && sessionId) {
-            sessionStorage.sessionId = sessionId;
+          const { token = '', userInfo = null, errorCode = '' } = data;
+          if (status === 200 && token) {
+            sessionStorage.token = token;
             localStorage.userInfo = userInfo;
+            history.push(pathname);
           } else {
             this.setState(() => ({
               defaultValue: {
