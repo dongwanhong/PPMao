@@ -18,7 +18,14 @@ const Home = (props) => {
         <Link to={`${path}/release-demand`}>测试基本鉴权功能</Link>
         <div>{text}</div>
         <Route exact path={path} component={Dashboard} />
-        <PrivateRoute exact path={`${path}/release-demand`} component={ReleaseDemand} requireLogin />
+        <PrivateRoute
+          exactm
+          pathOri={path}
+          path={`${path}/release-demand`}
+          component={ReleaseDemand}
+          requireLogin
+          requireAuthority={['requireAuthority']}
+        />
       </Content>
       <Footer>footer</Footer>
     </Layout>
