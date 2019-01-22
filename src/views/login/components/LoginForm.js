@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 import { Form } from 'antd';
 // eslint-disable-next-line
 import LoginContext from '../context';
@@ -17,7 +18,7 @@ class LoginForm extends Component {
       defaultValue: {
         show: false,
         type: 'info',
-        message: '请输入账户和密码：admin/Admin123',
+        message: <FormattedMessage id="tip_message" />,
       },
     };
   }
@@ -50,7 +51,7 @@ class LoginForm extends Component {
               defaultValue: {
                 show: true,
                 type: 'error',
-                message: errorCode,
+                message: <FormattedMessage id={errorCode} />,
               },
             }));
           }

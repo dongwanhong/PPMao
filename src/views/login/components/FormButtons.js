@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import {
   Form,
   Button,
@@ -17,15 +18,15 @@ const FormButtons = (props) => {
       {getFieldDecorator('remember', {
         valuePropName: 'checked',
         initialValue: true,
-      })(<Checkbox>自动登录</Checkbox>)}
-      <a className="login-form-forgot" href="">忘记密码</a>
+      })(<Checkbox><FormattedMessage id="auto_login" /></Checkbox>)}
+      <a className="login-form-forgot" href=""><FormattedMessage id="forgot_password" /></a>
       <Button
         type="primary"
         htmlType="submit"
         className="sub-button"
         disabled={hasErrors(getFieldsError())}
       >
-        Log in
+        <FormattedMessage id="btn_submit" />
       </Button>
     </Item>
   );

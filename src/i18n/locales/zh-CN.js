@@ -1,3 +1,7 @@
+import serverError from './server/error/zh-CN';
+import login from './views/login/zh-CN';
+
 export default {
-  helloWorld: '你好，世界！',
+  ...serverError,
+  ...login,
 };
