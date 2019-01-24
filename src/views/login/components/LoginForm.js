@@ -69,7 +69,9 @@ class LoginForm extends Component {
     return (
       <LoginContext.Provider value={defaultValue}>
         <Form layout="vertical" className="login" onSubmit={this.handleSubmit}>
-          {children(form)}
+          <div className="login-container">
+            {children(form)}
+          </div>
         </Form>
       </LoginContext.Provider>
     );

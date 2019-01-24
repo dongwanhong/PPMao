@@ -14,12 +14,14 @@ const FormButtons = (props) => {
   const { getFieldDecorator, getFieldsError } = form;
 
   return (
-    <Item>
-      {getFieldDecorator('remember', {
-        valuePropName: 'checked',
-        initialValue: true,
-      })(<Checkbox><FormattedMessage id="auto_login" /></Checkbox>)}
-      <a className="login-form-forgot" href=""><FormattedMessage id="forgot_password" /></a>
+    <Item className="login-button">
+      <div className="checkbox-wrapper">
+        {getFieldDecorator('remember', {
+          valuePropName: 'checked',
+          initialValue: true,
+        })(<Checkbox><FormattedMessage id="auto_login" /></Checkbox>)}
+        <a className="login-form-forgot" href=""><FormattedMessage id="forgot_password" /></a>
+      </div>
       <Button
         type="primary"
         htmlType="submit"
